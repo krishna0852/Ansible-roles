@@ -13,17 +13,14 @@
   file:
     path: /etc/apt/sources.list.d
     state: directory
-    
+
+- name: Create trivy.list file
+  file:
+    path: /etc/apt/sources.list.d/trivy.list
+    state: touch
+
 - name: adding trivy repository
   lineinfile:
     path: /etc/apt/sources.list.d/trivy.list
     line: "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main"
 
-- name: updating packages before installing trivy
-  apt:
-    update_cache: yes
-
-- name: installing trivy
-  apt:
-    name: trivy
-    state: present
