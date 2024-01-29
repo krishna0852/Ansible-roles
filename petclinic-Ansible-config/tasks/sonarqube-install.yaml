@@ -1,16 +1,32 @@
-- name: updating packages before installing sonarqube 
+- name: updating packages before installing sonarqube
   apt:
-    update_cache: yes 
-- name: installing sonarqube 
+    update_cache: yes
+- name: installing sonarqube
   get_url:
-    url: " {{sonarqube }}"
+    url:  " {{sonarqube }}"
     dest: "{{ installation_path }}"
-- name: getname 
+- name: getname
   shell:  echo "{{sonarqube }}" | awk -F / '{print $NF}'
   register: sonar_directory
-- name: extracting the installed sonar 
+- name: displaying sonar-value
+  debug:
+    msg: "{{ sonar_directory.stdout }}"
+- name: extracting the installed sonar
   unarchive:
-     src: "{{ sonar_directory.stdout }}"
+     src: "{{ installation_path}}/{{ sonar_directory.stdout }}"
      dest: /opt
-     remote_src: yes 
+     remote_src: yes
   when: sonar_directory.rc == 0
+
+- name: creating a user to start sonarqube 
+  user:
+   name: "{{sonar_username}}"
+   state: present 
+
+- name: adding directories 
+  file:
+    path: "{{ installation_path}}/{{ sonar_directory.stdout }}"
+    state: directory 
+    owner: "{{sonar_username}}"
+    group: "{{sonar_username}}"
+    mode: '0755'
