@@ -1,0 +1,5 @@
+- name: installing net-tools 
+  apt:
+    update_cache: yes 
+    name: "{{ tools_name }}"
+    state: absent
