@@ -59,4 +59,4 @@
 - name: sonarqube-status
   debug:
    msg: "{{sonarstatus.stdout}}"
-  when: sonarstatus.rc ==0
+  #when: sonarstatus.rc ==0
