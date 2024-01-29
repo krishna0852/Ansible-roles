@@ -22,8 +22,8 @@
   user:
    name: "{{sonar_username}}"
    state: present 
- - name: Set password for SonarQube user
-   shell: echo "{{ sonar_username }}:{{ sonar_password }}" | chpasswd
+- name: Set password for SonarQube user
+  shell: echo "{{ sonar_username }}:{{ sonar_password }}" | chpasswd
 
 # - name: Get SonarQube directory name without .zip extension
 #   set_fact:
@@ -46,3 +46,17 @@
     path: /opt/sonarqube-8.9.10.61524/bin/linux-x86-64/sonar.sh
     regexp: '#RUN_AS_USER='  # Specify the commented pattern to search for at the beginning of the line
     replace: 'RUN_AS_USER="{{sonar_username}}"'
+
+- name: Allow SonarQube user to run specific commands without password
+  lineinfile:
+    path: /etc/sudoers
+    line: '{{ sonar_username }} ALL=(ALL) NOPASSWD: ALL'
+
+- name: starting sonarqube 
+  shell: /opt/sonarqube-8.9.10.61524/bin/linux-x86-64/sonar.sh start  
+  register: sonarstatus 
+
+- name: sonarqube-status
+  debug:
+   msg: "{{sonarqube-status.stdout}}"
+  when: sonarstatus.rc ==0
