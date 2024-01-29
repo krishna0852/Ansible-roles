@@ -7,7 +7,7 @@
       - lsb-release
 
 - name: installing public trivy public-key
-  shell: "wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null"
+  shell: wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | tee /usr/share/keyrings/trivy.gpg > /dev/null
   args:
     executable_path: /bin/bash
 
