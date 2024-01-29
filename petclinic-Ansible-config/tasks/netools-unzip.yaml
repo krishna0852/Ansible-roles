@@ -1,0 +1,9 @@
+- name: updating packages before installing net-tools
+  apt:
+   update_cache: yes 
+- name: installing net-tools 
+  apt:
+   name: net-tools 
+- name: installing unzip 
+  apt:
+    name: unzip 

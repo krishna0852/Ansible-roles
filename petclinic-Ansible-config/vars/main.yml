@@ -4,9 +4,11 @@
 jdk_version: openjdk-17-jdk
 Java_dir: /usr/lib/jvm/java-17-openjdk-amd64
 maven_dir: /usr/share/maven/bin
+installation_path: /opt
 # maven: mvn
-# sonarqube: https://binaries.sonarsource.com/CommercialDistribution/sonarqube-enterprise/sonarqube-enterprise-8.9.10.61524.zip
+sonarqube: https://binaries.sonarsource.com/CommercialDistribution/sonarqube-enterprise/sonarqube-enterprise-8.9.10.61524.zip
 # sonar_scanner: 
 #jfrog:
 #trivy:
 
+# awk -F / '{print $NF}'
