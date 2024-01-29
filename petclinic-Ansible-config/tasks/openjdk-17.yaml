@@ -11,6 +11,6 @@
   lineinfile:
      path: /etc/environment 
      line: 'PATH=$PATH:/usr/bin:/bin:$JAVA_HOME/bin'
-  notify: refresh environment file
+  notify: refreshing java environment variables 
      
        
