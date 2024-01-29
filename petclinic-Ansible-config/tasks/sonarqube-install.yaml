@@ -26,9 +26,9 @@
 # - name: Get SonarQube directory name without .zip extension
 #   set_fact:
 #     sonar_directory_name: "{{ sonar_directory.stdout | regex_replace('\\.zip$', '') }}"
-- name: get name without zip 
-  shell: echo "{{ sonar_directory }}" | sed 's/\.zip$//'
-  register: valueofsonar
+# - name: get name without zip 
+#   shell: echo "{{ sonar_directory }}" | sed 's/\.zip$//'
+#   register: valueofsonar
 
 - name: adding directories 
   file:
