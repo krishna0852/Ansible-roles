@@ -13,5 +13,5 @@
 - name: setting bin-path environment variable
   lineinfile:
      path: /etc/environment
-     line: 'PATH=$PATH:/usr/bin:/bin:$JAVA_HOME/bin'
+     line: 'PATH=$PATH:/usr/bin:/bin:$MVN_HOME/bin'
   notify: refreshing maven environment variables 
