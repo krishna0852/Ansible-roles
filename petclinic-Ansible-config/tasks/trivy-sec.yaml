@@ -9,7 +9,11 @@
 - name: installing public trivy public-key
   shell: wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | tee /usr/share/keyrings/trivy.gpg > /dev/null
  
-
+- name: Create trivy sources.list.d directory
+  file:
+    path: /etc/apt/sources.list.d
+    state: directory
+    
 - name: adding trivy repository
   lineinfile:
     path: /etc/apt/sources.list.d/trivy.list
