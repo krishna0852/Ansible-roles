@@ -22,6 +22,8 @@
   user:
    name: "{{sonar_username}}"
    state: present 
+ - name: Set password for SonarQube user
+   shell: echo "{{ sonar_username }}:{{ sonar_password }}" | chpasswd
 
 # - name: Get SonarQube directory name without .zip extension
 #   set_fact:

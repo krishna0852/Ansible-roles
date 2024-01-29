@@ -8,6 +8,7 @@ installation_path: /opt
 # maven: mvn
 sonarqube: https://binaries.sonarsource.com/CommercialDistribution/sonarqube-enterprise/sonarqube-enterprise-8.9.10.61524.zip
 sonar_username: sonar121
+sonar_password: sonar1234
 # sonar_scanner: 
 #jfrog:
 #trivy:
