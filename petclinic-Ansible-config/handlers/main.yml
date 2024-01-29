@@ -1,2 +1,8 @@
 ---
 # handlers file for petclinic-Ansible-config
+
+- name: refreshing java environment variables 
+  shell: . /etc/environment 
+
+- name: refreshing maven environment variables 
+  shell: . /etc/environment

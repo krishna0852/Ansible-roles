@@ -1,0 +1,26 @@
+# - name: Install Java and set environment variables
+#   hosts: your_target_servers
+#   become: true  # Run tasks with sudo
+
+#   tasks:
+#     - name: Update apt cache
+#       apt:
+#         update_cache: yes
+
+#     - name: Install OpenJDK
+#       apt:
+#         name: openjdk-11-jdk
+#         state: present
+
+#     - name: Set JAVA_HOME and PATH environment variables
+#       lineinfile:
+#         dest: /etc/environment
+#         line: |
+#           JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+#           PATH=$PATH:$JAVA_HOME/bin
+#       notify: Load environment variables
+
+#   handlers:
+#     - name: Load environment variables
+#       command: source /etc/environment
+#       ignore_errors: true

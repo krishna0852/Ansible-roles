@@ -1,0 +1,17 @@
+- name: updating packages before installing maven 
+  apt:
+   update_cache: yes 
+- name: installing maven build tool 
+  apt:
+   name: maven 
+   state: present 
+- name: setting maven environment variables 
+  lineinfile:
+    path: /etc/environment
+    line: 'MVN_HOME= "{{ maven_dir }}"'
+      
+- name: setting bin-path environment variable
+  lineinfile:
+     path: /etc/environment
+     line: 'PATH=$PATH:/usr/bin:/bin:$JAVA_HOME/bin'
+  notify: refreshing maven environment variables 

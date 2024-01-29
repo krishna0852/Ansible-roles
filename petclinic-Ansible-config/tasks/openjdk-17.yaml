@@ -1,0 +1,16 @@
+- name: installing JAVA-17
+  apt:
+   update_cache: yes 
+   name: "{{jdk_version}}"
+   state: present 
+- name: setting Home-path for installed-java 
+  lineinfile:
+     path: /etc/environment 
+     line:  'JAVA_HOME="{{Java_dir}}"'
+- name: setting bin-path for installed-java 
+  lineinfile:
+     path: /etc/environment 
+     line: 'PATH=$PATH:/usr/bin:/bin:$JAVA_HOME/bin'
+  notify: refresh environment file
+     
+       
