@@ -24,3 +24,10 @@
     path: /etc/apt/sources.list.d/trivy.list
     line: "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main"
 
+- name: updating packages before installing trivy 
+  apt:
+   update_cache: yes 
+- name: installing trivy 
+  apt:
+   name: trivy
+
