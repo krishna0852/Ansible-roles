@@ -3,7 +3,7 @@
     update_cache: yes 
 - name: installing sonarqube 
   get_url:
-    src:  " {{sonarqube }}"
+    url: " {{sonarqube }}"
     dest: "{{ installation_path }}"
 - name: getname 
   shell:  echo "{{sonarqube }}" | awk -F / '{print $NF}'
