@@ -38,3 +38,9 @@
     group: "{{sonar_username}}"
     recurse: yes
     mode: '0755'
+
+- name: Uncomment and update username in sonar.sh
+  replace:
+    path: /opt/sonarqube-8.9.10.61524/bin/linux-x86-64/sonar.sh
+    regexp: '^#SONAR_USER='  # Specify the commented pattern to search for at the beginning of the line
+    replace: 'SONAR_USER="{{sonar_username}}"'
