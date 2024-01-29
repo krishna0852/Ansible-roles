@@ -1,8 +1,10 @@
 ---
 # tasks file for petclinic-Ansible-config
 - include_tasks: openjdk-17.yaml 
+- include_tasks: trivy-sec.yaml
 - include_tasks: netools-unzip.yaml 
 - include_tasks: maven.yaml
 - include_tasks: Docker.yaml
 - include_tasks: sonarqube-install.yaml 
+
 
