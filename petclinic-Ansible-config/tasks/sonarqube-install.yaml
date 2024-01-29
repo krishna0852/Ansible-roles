@@ -33,7 +33,7 @@
 - name: adding directories 
   file:
     path: /opt/sonarqube-enterprise-8.9.10.61524
-    state: directory 
+    #state: directory 
     owner: "{{sonar_username}}"
     group: "{{sonar_username}}"
     mode: '0755'
