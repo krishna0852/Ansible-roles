@@ -36,4 +36,5 @@
     state: directory
     owner: "{{sonar_username}}"
     group: "{{sonar_username}}"
+    rescursive: yes
     mode: '0755'
