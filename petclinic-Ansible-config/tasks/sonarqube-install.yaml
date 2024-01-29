@@ -29,7 +29,7 @@
 
 - name: adding directories 
   file:
-    path: "{{ installation_path}}/{{ sonar_directory_name }}"
+    path: "{{ installation_path}}/{{ sonar_directory.stdout}}"
     state: directory 
     owner: "{{sonar_username}}"
     group: "{{sonar_username}}"
