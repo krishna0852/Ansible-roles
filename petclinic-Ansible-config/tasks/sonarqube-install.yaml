@@ -32,7 +32,7 @@
 
 - name: adding directories 
   file:
-    path: "{{ installation_path}}/{{ valueofsonar.stdout}}"
+    path: /opt/sonarqube-enterprise-8.9.10.61524
     state: directory 
     owner: "{{sonar_username}}"
     group: "{{sonar_username}}"
